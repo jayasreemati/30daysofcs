@@ -1,1 +1,8 @@
-ECHO is on.
+git status
+git add .
+git connect
+git commit
+git commit -m "new content added command history"
+git push
+doskey /history
+
