@@ -1,0 +1,60 @@
+Five types of selectors:
+1.Type selectors
+2.Class selectors
+3.ID selectors
+4.Universal selectors
+5.Combining selectors
+
+1.Type selectors - Its gonna select all elements of type heading1
+
+2.Class selectors - class selectors allow us to assign styles to elements that contain a specific class or set of classes.
+—> So this class selector is noted with a dot followed by the class name,its used to style multipele elements that have that class name.
+
+Ex :
+.title{
+color : red ;
+}
+
+—>Here we are styling all elements that have a class of title and we are changing the color to red.
+—>In this casew,its just the heading one.
+
+3.ID selectors - ID selectors allow you to assign styles to one element containing a specific ID.
+
+Ex :
+title {
+color : red ;
+}
+
+—>so its noted with a hash symbol and its followed by the ID name.
+—>And again ,use the style one element with the ID name.
+—>so instead of class of title on our heading level one, we’ve got an ID of title setting color to red.
+
+4.Universal selector - This is noted with an asterisk and it matches any element.
+
+Ex :
+html:
+Hello
+This is a link to a cool
+website.
+
+CSS:
+*{
+color : red ;
+}
+
+so all the h1 and paragraph will be in red color.
+—> So to make every single element red,we could write asterisk and then in the curly brackets color red.
+
+5.combining Selectors - You can combine selectors to be more specific about which element you want to select.
+
+Ex :
+.body p {
+color : blue;
+}
+
+All the paragraphs inside a body are colored blue.
+
+.body p#blue{
+color : blue ;
+}
+Here it would color all the paragraph elements with an ID blue inside of a tag with a class element body.
