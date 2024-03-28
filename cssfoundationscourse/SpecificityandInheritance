@@ -1,0 +1,106 @@
+.Inheritance - occurs when an inheritable CSS property(i.e color)is not set directly on an element,the parent chain is traversed until a value for that property is found.
+Ex :
+HTML
+<div class = “blue><p>This is me</p>
+</div>
+CSS
+p{
+color : red ;
+}
+.blue {
+color : blue ;
+}
+Here we have type selector p and class selector .blue.As the inheritance tree goes up until it finds the first match.
+Other case :
+p {
+color : red ;
+}
+.blue p {
+Color : blue ;
+}
+Here answer will be blue because it is stronger specifier Compared to both selectors.
+
+.Specificity - the algorithm used by browsers to determine which css declaration should be applied.
+Each selector has a calculated weight. The most specific weight wins.
+| ID | Class | Type |
+ID Selector    : 1-0-0
+Class Selector : 0-1-0
+Type Selector  : 0-0-1
+
+Ex:
+.body p{
+…
+}
+we get
+| ID | Class | Type |
+| 0  |   1   | 1    |
+
+.body .text p{
+…
+}
+we get
+| ID | Class | Type |
+| 0  | 2     | 1    |
+
+.body #title{
+…
+}
+we get
+| ID | Class | Type |
+| 1  | 1     | 0    |
+
+>>>Inline Styles : Inline styles have a higher specificity than ID selectors.
+
+<div>
+    <p id ="text" style = "color : blue">Lorem Ipsum</p>
+</div>
+#text {
+    color : red ;
+}
+-->Here we get para as blue color, because inline style override ID selector.
+
+>>>!Important
+This marks a style as important ; overrides all other styles.
+```html
+<div>
+    <p id="text" style="color: blue">Lorem Ipsum</p>
+</div>
+```css
+#text {
+    color : red !important
+}
+—>the result will print in red color because !important overrides all other styles.
+NOTE : Always try to write a higher specificity selector instead of !important.
+
+—>Specificity
+If there are two or more declarations providing different property values for the same element, the declaration with the most specific selector wins.
+
+Question : If a selector has 10 classes and 1 ID selector.Will 10 classes override 1 ID selector.
+Ans : No
+specificity wins over quantity.
+`
+
+a {                                               <ul class = 'list'>
+</ul>                                             <li class ="list-item"><a id="link-1"                                       href="a">Link 1</a></li>
+color : inherit ;                                <li class ="list-item"><a id="link-2"                                      href="a">Link 2</a></li>
+}                                                 <li class ="list-item"><a id="link-3"                                       href="a">Link 3</a></li>
+ul {                                              </ul>
+    color : red ;
+}
+li.list-item #link-2 {
+     color : yellow ;
+}
+ul.list {
+     color : yellow ;
+}
+ul.list {
+   color : blue ;
+}
+li #link-2 {
+ color : red;
+}`
+
+-Link 1 —>blue
+-Link 2 —>red - If two or more selectors have same weight ,the most recent one wins.so its red.
+-Link 3 —>blue.
+this is it.
